@@ -1,14 +1,28 @@
 import database from '../database/connection.js';
 
 export default async function (request, response) {
-    const { depth } = request.query;
-    const limit = Number(depth) && depth <= 500 ? Number(depth) : 100;
-    
+    const row = request.body;
 
-    const ranks = await database('rank')
-        .limit(limit)
-        .orderBy('points', 'desc')
-        .select('*');
+    if(!row || !row.playerName || !row.points) {
+        return response
+            .status(400)
+            .json({
+                error: 'Invalid row'
+            });
+    }
 
-    return response.json(ranks);
+    try {
+        await database('rank')
+            .insert(row);
+    } catch (err) {
+        return response
+            .status(500)
+            .json({
+                error: err.message
+            });
+    }
+
+    return response
+        .status(201)
+        .send();
 }
