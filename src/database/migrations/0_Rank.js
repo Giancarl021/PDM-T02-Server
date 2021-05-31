@@ -1,3 +1,4 @@
+// Descreve a criação tabela Rank
 export async function up(knex) {
     return knex.schema.createTable('rank', table => {
         table.increments('id').primary();
@@ -6,6 +7,7 @@ export async function up(knex) {
     });
 }
 
+// Descreve a destruição da tabela Rank
 export async function down(knex) {
     return knex.schema.dropTable('rank');
 }
