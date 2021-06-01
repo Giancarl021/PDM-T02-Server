@@ -6,7 +6,7 @@ import NewRankController from './controllers/NewRankController.js';
 // Cria um roteador do Express
 const routes = express.Router();
 
-// Cria a rota /ranking aceitando requisições
+// Cria a rota /ranking aceitando requisições GET
 routes.get('/ranking', RankingController);
 
 // Cria a rota /upload aceitando requisições POST
