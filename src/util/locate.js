@@ -2,7 +2,7 @@ import { homedir } from 'os';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// Busca pasta atual do arquivo
+// Busca pasta atual do arquivo locate.js
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Localiza arquivo ou diretório a partir da raíz do projeto

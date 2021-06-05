@@ -4,7 +4,7 @@ export default async function (request, response) {
     const row = request.body;
 
     // Verifica se todos os campos foram passados na requisição
-    if(!row || !row.playerName || !row.points) {
+    if (!row || !row.playerName || !row.points) {
         return response
             .status(400)
             .json({

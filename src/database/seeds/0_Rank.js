@@ -21,9 +21,13 @@ export async function seed(knex) {
 
 // Busca um nome aleatório
 function getRandomRank() {
+    // Gera um número aleatório entre 0 e 999
     const random = Math.floor(Math.random() * 1000);
+
     return {
+        // Carrega um nome aleatório com a seed do sha1 (função de hash) do número aleatório
         playerName: randomName({ seed: sha1(random) }),
+        // Pontos do número aleatório
         points: random
     };
 }
